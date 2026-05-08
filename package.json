@@ -1,0 +1,22 @@
+{
+  "name": "parodify-boilerplate",
+  "version": "1.0.0",
+  "description": "- instalação do playwrght: npx playwright test --ui",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edsonj82/parodify-playwright-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edsonj82/parodify-playwright-boilerplate/issues"
+  },
+  "homepage": "https://github.com/edsonj82/parodify-playwright-boilerplate#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.2"
+  }
+}
