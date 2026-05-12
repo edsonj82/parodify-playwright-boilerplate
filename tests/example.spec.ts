@@ -1,5 +1,6 @@
-import { test, expect } from '@playwright/test';
-import { PlayerPage } from '../pages/PlayerPage';
+// import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/base';
+// import { PlayerPage } from '../pages/PlayerPage';
 
 
 test.describe('Music Player', () => {
@@ -14,9 +15,9 @@ test.describe('Music Player', () => {
     src: "https://raw.githubusercontent.com/qaxperience/mock/main/songs/nirvana.mp3"
   };
 
-  test('it should display a music player', async ({ page }) => {
+  test('it should display a music player', async ({ page, player }) => {
 
-    const player = new PlayerPage(page);
+    // const player = new PlayerPage(page);
 
     // Interceptação de API (Network Mocking)
     await page.route('**/songs', async (route) => {
