@@ -31,3 +31,11 @@ Para testar fluxos que dependem do tempo (como o fim de uma música), utilizamos
 1. Instale as dependências:
    ```bash
    npm install
+
+2. Execute os testes em modo headless:
+    ```bash
+   npx playwright test
+
+3. Abra o relatório de testes:
+    ```bash
+    npx playwright show-report
