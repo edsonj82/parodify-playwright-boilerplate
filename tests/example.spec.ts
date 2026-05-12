@@ -1,7 +1,6 @@
 // import { test, expect } from '@playwright/test';
-import { test, expect } from '../fixtures/base';
 // import { PlayerPage } from '../pages/PlayerPage';
-
+import { test, expect } from '../fixtures/base';
 
 test.describe('Music Player', () => {
   // Mock centralizado em uma constante para fácil manutenção
@@ -16,7 +15,6 @@ test.describe('Music Player', () => {
   };
 
   test('it should display a music player', async ({ page, player }) => {
-
     // const player = new PlayerPage(page);
 
     // Interceptação de API (Network Mocking)
@@ -44,7 +42,6 @@ test.describe('Music Player', () => {
     await page.clock.fastForward(30000);  // Avança o relógio em 30 segundos (30000 ms)
 
     await player.verifySongFinished(MOCK_SONG.title);  // Expect the play button to be visible again after some time (indicating the song has finished playing). 
-
   });
 
   test('it should allow the user to pause', async ({ page, player }) => {
@@ -64,10 +61,25 @@ test.describe('Music Player', () => {
     // Pausar a música
     await player.pauseSong(MOCK_SONG.title);
     await player.verifyPlayVisible(MOCK_SONG.title);  // Expect the play button to be visible after pausing.
+  });
 
+  test('it should allow to resume paused music', async ({ page, player }) => {
+    // Interceptação de API para fornecer uma música de teste
+    await page.route('**/songs', async (route) => {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([MOCK_SONG])
+      });
+    });
+    await page.goto('/');
+
+    await player.playSong(MOCK_SONG.title);
+    await player.verifyPauseVisible(MOCK_SONG.title);
+    await player.pauseSong(MOCK_SONG.title);
+    await player.verifyPlayVisible(MOCK_SONG.title);
     // // Retomar a música
-    // await player.playSong(MOCK_SONG.title);
-    // await player.verifyPauseVisible(MOCK_SONG.title);  // Expect the pause button to be visible again after resuming. 
-
+    await player.playSong(MOCK_SONG.title);
+    await player.verifyPauseVisible(MOCK_SONG.title); // Expect the pause button to be visible again after resuming. 
   });
 });

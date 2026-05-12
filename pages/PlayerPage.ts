@@ -20,15 +20,6 @@ export class PlayerPage {
         await expect(this.songCard(title).locator('.pause')).toBeVisible();
     }
 
-    async verifySongFinished(title: string) {
-        const card = this.songCard(title);
-        // 2026 Best Practice: Esperar o estado contrário desaparecer 
-        // garante que a transição de UI foi concluída.
-        await expect(card.locator('.pause')).toBeHidden({ timeout: 10000 });  // Espera até 5 segundos para o botão de pause desaparecer antes de verificar o play.
-        await expect(card.locator('.play')).toBeVisible();
-        // await expect(this.songCard(title).locator('.play')).toBeVisible();
-    }
-
     async pauseSong(title: string) {
         const card = this.songCard(title);
         await card.locator('.pause').click();
@@ -36,5 +27,14 @@ export class PlayerPage {
 
     async verifyPlayVisible(title: string) {
         await expect(this.songCard(title).locator('.play')).toBeVisible();
+    }
+
+    async verifySongFinished(title: string) {
+        const card = this.songCard(title);
+        // 2026 Best Practice: Esperar o estado contrário desaparecer 
+        // garante que a transição de UI foi concluída.
+        await expect(card.locator('.pause')).toBeHidden({ timeout: 10000 });  // Espera até 5 segundos para o botão de pause desaparecer antes de verificar o play.
+        await expect(card.locator('.play')).toBeVisible();
+        // await expect(this.songCard(title).locator('.play')).toBeVisible();
     }
 }
