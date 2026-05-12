@@ -9,19 +9,6 @@ Este repositório contém um framework de automação de testes de UI de alto de
 - **Page Object Model (POM):** Arquitetura para organização de seletores e ações de página.
 - **Fixtures:** Injeção de dependências para setup e teardown automatizados.
 
-## 🏗️ Estrutura do Projeto
-
-A organização de pastas segue o padrão de escalabilidade para projetos de automação profissional:
-```text
-├── fixtures/          # Extensões do Playwright e configurações de ambiente
-│   └── base.ts        # Definição de fixtures customizadas (PlayerPage + Clock)
-├── pages/             # Implementação do Page Object Model (POM)
-│   └── PlayerPage.ts  # Elementos e ações da página do Player
-├── tests/             # Cenários de teste automatizados
-│   └── example.spec.ts
-├── playwright.config.ts
-└── package.json
-
 ## 🏗️ Arquitetura e Diferenciais Técnicos
 
 ### 1. Page Object Model (POM)
