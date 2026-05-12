@@ -33,4 +33,8 @@ export class PlayerPage {
         const card = this.songCard(title);
         await card.locator('.pause').click();
     }
+
+    async verifyPlayVisible(title: string) {
+        await expect(this.songCard(title).locator('.play')).toBeVisible();
+    }
 }
