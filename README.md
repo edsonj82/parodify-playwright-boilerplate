@@ -43,3 +43,16 @@ Para testar fluxos que dependem do tempo (como o fim de uma música), utilizamos
 Este projeto reflete a aplicação de padrões avançados de QA Engineering, focado na criação de pipelines de CI/CD rápidos e resilientes.
 
 ---
+
+## 🏗️ Estrutura do Projeto
+
+A organização de pastas segue o padrão de escalabilidade para projetos de automação profissional:
+```bash
+├── fixtures/          # Extensões do Playwright e configurações de ambiente
+│   └── base.ts        # Definição de fixtures customizadas (PlayerPage + Clock)
+├── pages/             # Implementação do Page Object Model (POM)
+│   └── PlayerPage.ts  # Elementos e ações da página do Player
+├── tests/             # Cenários de teste automatizados
+│   └── example.spec.ts
+├── playwright.config.ts
+└── package.json
