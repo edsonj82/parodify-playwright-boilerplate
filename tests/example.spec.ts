@@ -46,4 +46,28 @@ test.describe('Music Player', () => {
     await player.verifySongFinished(MOCK_SONG.title);  // Expect the play button to be visible again after some time (indicating the song has finished playing). 
 
   });
+
+  test('it should allow the user to pause and resume a song', async ({ page, player }) => {
+    // Interceptação de API para fornecer uma música de teste
+    await page.route('**/songs', async (route) => {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([MOCK_SONG])
+      });
+    });
+    await page.goto('/');
+
+    // Tocar a música
+    await player.playSong(MOCK_SONG.title);
+    await player.verifyPauseVisible(MOCK_SONG.title);
+    // Pausar a música
+    await player.songCard(MOCK_SONG.title).locator('.pause').click();
+    await expect(player.songCard(MOCK_SONG.title).locator('.play')).toBeVisible();  // Expect the play button to be visible after pausing.
+    // Retomar a música
+    await player.playSong(MOCK_SONG.title);
+    await player.verifyPauseVisible(MOCK_SONG.title);  // Expect the pause button to be visible again after resuming. 
+
+  });
+
 });

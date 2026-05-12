@@ -28,4 +28,9 @@ export class PlayerPage {
         await expect(card.locator('.play')).toBeVisible();
         // await expect(this.songCard(title).locator('.play')).toBeVisible();
     }
+
+    async pauseSong(title: string) {
+        const card = this.songCard(title);
+        await card.locator('.pause').click();
+    }
 }
