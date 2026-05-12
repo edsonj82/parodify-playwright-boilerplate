@@ -47,7 +47,7 @@ Este projeto reflete a aplicação de padrões avançados de QA Engineering, foc
 ## 🏗️ Estrutura do Projeto
 
 A organização de pastas segue o padrão de escalabilidade para projetos de automação profissional:
-```bash
+```text
 ├── fixtures/          # Extensões do Playwright e configurações de ambiente
 │   └── base.ts        # Definição de fixtures customizadas (PlayerPage + Clock)
 ├── pages/             # Implementação do Page Object Model (POM)
