@@ -1,18 +1,11 @@
 // import { test, expect } from '@playwright/test';
 // import { PlayerPage } from '../pages/PlayerPage';
 import { test, expect } from '../fixtures/base';
+import songs from '../fixtures/songs.json';
 
 test.describe('Music Player', () => {
-  // Mock centralizado em uma constante para fácil manutenção
-  const MOCK_SONG = {
-    id: 1,
-    title: "Smell Like Test Script",
-    artist: "Nullvana",
-    description: "Nullvana",
-    image: "https://raw.githubusercontent.com/qaxperience/mock/main/covers/nevertesting.jpg",
-    type: "album",
-    src: "https://raw.githubusercontent.com/qaxperience/mock/main/songs/nirvana.mp3"
-  };
+  // Definimos qual música usar nos testes (facilita a troca se necessário)
+  const MOCK_SONG = songs[0];
 
   test('it should display a music player', async ({ page, player }) => {
     // const player = new PlayerPage(page);

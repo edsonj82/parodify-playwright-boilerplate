@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Smell Like Test Script",
+        "artist": "Nullvana",
+        "description": "Nullvana",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/nevertesting.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/nirvana.mp3"
+    },
+    {
+        "id": 2,
+        "title": "Nice Bugs Finish Devs",
+        "artist": "Bugreen Day",
+        "description": "Bugreen Day",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/bugreenday.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/punk.mp3"
+    },
+    {
+        "id": 3,
+        "title": "Bug Suede Shoes",
+        "artist": "Elvis Testley",
+        "description": "Elvis Testley",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/elvis.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/guitarboogie.mp3"
+    },
+    {
+        "id": 4,
+        "title": "All The Small Sprints",
+        "artist": "Jira 182",
+        "description": "Jira 182",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/jira182.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/rebels.mp3"
+    },
+    {
+        "id": 5,
+        "title": "The Devs Aren't Alright",
+        "artist": "The Offsprint",
+        "description": "The Offsprint",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/offsprint.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/punkrock.mp3"
+    },
+    {
+        "id": 6,
+        "title": "Symphony of Production",
+        "artist": "Megatest",
+        "description": "Megatest",
+        "image": "https://raw.githubusercontent.com/qaxperience/mock/main/covers/megatest.jpg",
+        "type": "album",
+        "src": "https://raw.githubusercontent.com/qaxperience/mock/main/songs/afight.mp3"
+    }
+]
