@@ -76,3 +76,32 @@ test.describe('Music Player', () => {
     await player.verifyPauseVisible(MOCK_SONG.title); // Expect the pause button to be visible again after resuming. 
   });
 });
+
+test.describe('Music Player - Dynamic Suite', () => {
+  // Criando testes dinamicamente para cada música no JSON
+  songs.forEach((song) => {
+    test(`should play and finish the song: ${song.title}`, async ({ page, player }) => {
+      // Interceptamos a API com a lista completa, mas focamos na música da iteração
+      await page.route('**/songs', async (route) => {
+        route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify([song])
+        });
+      });
+      await page.goto('/');
+
+      // Validação de Identidade (Fernando Papito)
+      await expect(player.loggedUser).toHaveText('Fernando Papito');  // Expect the logged user to be displayed correctly.
+
+      // Fluxo dinâmico baseado no título da música atual do loop
+      await player.playSong(song.title);
+      await player.verifyPauseVisible(song.title);
+
+      // Salto temporal para validar a conclusão
+      await page.clock.fastForward(30000);
+      await player.verifySongFinished(song.title);
+
+    });
+  });
+});
