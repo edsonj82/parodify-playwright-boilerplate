@@ -26,6 +26,24 @@ Interceptamos as chamadas de API (`**/songs`) para fornecer dados controlados. I
 Para testar fluxos que dependem do tempo (como o fim de uma música), utilizamos o `page.clock`. Em vez de esperar 30 segundos reais, avançamos o relógio virtualmente.
 - **Velocidade:** Testes que demorariam minutos são executados em milissegundos.
 
+## 🧪 Cenários de Testes Automatizados
+
+Abaixo estão detalhados os comportamentos validados nesta suíte de testes:
+
+### 1. Autenticação e Perfil
+* **Validar login com sucesso:** Verifica se o utilizador consegue aceder à plataforma e se o nome de perfil (ex: "Fernando Papito") é exibido corretamente no dashboard.
+
+### 2. Player de Música (Funcionalidades de Áudio)
+* **Reproduzir uma música:** Valida que, ao clicar no botão play de um card, a música inicia e a interface altera o botão para o estado "Pause".
+* **Verificar transição de ícones:** Garante que o estado visual do card reflete exatamente o status da reprodução (Play vs Pause).
+* **Concluir reprodução automaticamente:** Utiliza manipulação de tempo (Clock API) para validar que, ao atingir o fim da faixa, o botão de "Pause" desaparece e o botão de "Play" retorna, indicando que a música terminou.
+
+### 3. Cobertura Dinâmica (Data-Driven)
+* **Validar catálogo de músicas via JSON:** O teste percorre uma lista dinâmica de músicas, validando para cada item:
+    * Se o título da música está correto no card.
+    * Se o player funciona para diferentes faixas da mesma massa de dados.
+    * Se o fluxo de "Início -> Fim" é consistente em todo o catálogo mockado.
+
 ## 🏗️ Estrutura do Projeto
 
 A organização de pastas segue o padrão de escalabilidade para projetos de automação profissional:
